@@ -1,0 +1,24 @@
+name: aur-publish
+
+on:
+  push
+
+
+jobs:
+  aur-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Publish AUR package
+        uses: filips123/github-actions-deploy-aur@20cba93ba22a58ca8a8be799037bb52d1fd21e2d
+        with:
+          pkgname: my-awesome-package
+          pkgbuild: ./aur-package/PKGBUILD
+          assets: |
+            ./aur-package/**
+          commit_username: User
+          commit_email: user@example.com
+          ssh_private_key: AAAAAAAAAAAAAAA
+          commit_message: Update AUR package
+          ssh_keyscan_types: rsa,dsa,ecdsa,ed25519

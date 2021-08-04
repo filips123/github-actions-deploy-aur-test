@@ -1,0 +1,28 @@
+pkgname="test-package"
+pkgdesc="Test Hello World"
+pkgver="0.0.0"
+pkgrel=1
+url="https://example.com"
+arch=("x86_64" "i686")
+license=("MIT")
+install=package.install
+
+source=("https://github.com/filips123/github-actions-deploy-aur-test/archive/refs/heads/master.zip")
+sha256sums=(SKIP)
+b2sums=(SKIP)
+
+prepare() {
+    echo Test 1
+}
+
+build() {
+    echo Test 2
+}
+
+check() {
+    echo Test 3
+}
+
+package() {
+    echo Test 4
+}
